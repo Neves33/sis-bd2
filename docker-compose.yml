@@ -1,4 +1,23 @@
 php:
+<<<<<<< HEAD
+    build: .
+    ports:
+     - "9090:80"
+     - "443:443"
+    volumes:
+     - ./public:/var/www/html
+    links:
+        - db
+db:
+    image: mysql:8
+    ports:
+        - "52000:3306"
+    volumes:
+        - /var/lib/mysql
+    environment:
+        - MYSQL_DATABASE=db_app_db2
+        - MYSQL_ROOT_PASSWORD=123456
+=======
   build: .
   ports:
     - "9090:80"
@@ -24,5 +43,6 @@ db:
 
 # Restaurar
 # cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
+>>>>>>> 31780e538a9dd49988ac21f542f9e4f437080aeb
 
 # cat dump.sql | docker exec -i sis-bd2_db_1 /usr/bin/mysql -u root --password=123456 db_app_db2

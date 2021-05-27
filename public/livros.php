@@ -21,17 +21,21 @@
 
         $conexao = RetornaConexao();
 
-        $titulo = 'titulo';
-        $autor = 'autor';
-        $classificacao = 'classificacao';
         /*TODO-1: Adicione uma variavel para cada coluna */
+        $nome = 'nome';
+        $data_primeira_publicacao = 'data_primeira_publicacao';
+        $categoria = 'categoria';
+        $classificacao = 'classificacao';
+        $autor = 'autor';
 
 
         $sql =
-            'SELECT ' . $titulo .
-            '     , ' . $autor .
+             /*TODO-2: Adicione cada variavel a consulta abaixo */
+            'SELECT ' . $nome .
+            '     , ' . $data_primeira_publicacao .
+            '     , ' . $categoria .
             '     , ' . $classificacao .
-            /*TODO-2: Adicione cada variavel a consulta abaixo */
+            '     , ' . $autor .
             '  FROM livros';
 
 
@@ -45,10 +49,13 @@
         $cabecalho =
             '<table>' .
             '    <tr>' .
-            '        <th>' . $titulo . '</th>' .
-            '        <th>' . $autor . '</th>' .
             /* TODO-3: Adicione as variaveis ao cabeçalho da tabela */
+            '        <th>' . $nome . '</th>' .
+            '        <th>' . $data_primeira_publicacao . '</th>' .
+            '        <th>' . $categoria . '</th>' .
             '        <th>' . $classificacao . '</th>' .
+            '        <th>' . $autor . '</th>' .
+
             '    </tr>';
 
         echo $cabecalho;
@@ -58,10 +65,13 @@
             while ($registro = mysqli_fetch_assoc($resultado)) {
                 echo '<tr>';
 
-                echo '<td>' . $registro[$titulo] . '</td>' .
-                    '<td>' . $registro[$autor] . '</td>' .
-                    /* TODO-4: Adicione a tabela os novos registros. */
-                    '<td>' . $registro[$classificacao] . '</td>';
+                /* TODO-4: Adicione a tabela os novos registros. */
+                echo '<td>' . $registro[$nome] . '</td>' .
+                    '<td>' . $registro[$data_primeira_publicacao] . '</td>' .
+                    '<td>' . $registro[$categoria] . '</td>'.
+                    '<td>' . $registro[$classificacao] . '</td>'.
+                    '<td>' . $registro[$autor] . '</td>';
+
                 echo '</tr>';
             }
             echo '</table>';
